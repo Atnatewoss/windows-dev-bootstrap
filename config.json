@@ -1,0 +1,87 @@
+{
+  "apps": [
+    {
+      "name": "Zed Editor",
+      "method": "winget",
+      "id": "Zed.Zed",
+      "size_mb": 85,
+      "pin_to_taskbar": true,
+      "pin_path": "C:\\Users\\$env:USERNAME\\AppData\\Local\\Programs\\Zed\\zed.exe"
+    },
+    {
+      "name": "Brave Browser",
+      "method": "winget",
+      "id": "Brave.Brave",
+      "size_mb": 110,
+      "pin_to_taskbar": true,
+      "pin_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+    },
+    {
+      "name": "Node.js LTS",
+      "method": "winget",
+      "id": "OpenJS.NodeJS.LTS",
+      "size_mb": 35
+    },
+    {
+      "name": "Python",
+      "method": "winget",
+      "id": "Python.Python.3.12",
+      "size_mb": 25
+    },
+    {
+      "name": "Bun",
+      "method": "direct_download",
+      "url": "https://github.com/oven-sh/bun/releases/latest/download/bun-windows-x64.zip",
+      "silent_args": "",
+      "size_mb": 30,
+      "instructions": "Extract zip and add to PATH"
+    },
+    {
+      "name": "Obsidian",
+      "method": "winget",
+      "id": "Obsidian.Obsidian",
+      "size_mb": 120,
+      "pin_to_taskbar": true,
+      "pin_path": "C:\\Users\\$env:USERNAME\\AppData\\Local\\Obsidian\\Obsidian.exe"
+    },
+    {
+      "name": "Bitwarden",
+      "method": "winget",
+      "id": "Bitwarden.Bitwarden",
+      "size_mb": 90,
+      "pin_to_taskbar": false
+    },
+    {
+      "name": "LocalSend",
+      "method": "winget",
+      "id": "LocalSend.LocalSend",
+      "size_mb": 45
+    },
+    {
+      "name": "Git",
+      "method": "winget",
+      "id": "Git.Git",
+      "size_mb": 65
+    },
+    {
+      "name": "GitHub Desktop",
+      "method": "winget",
+      "id": "GitHub.GitHubDesktop",
+      "size_mb": 95,
+      "pin_to_taskbar": true,
+      "pin_path": "C:\\Users\\$env:USERNAME\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe"
+    },
+    {
+      "name": "PostgreSQL + pgAdmin",
+      "method": "winget",
+      "id": "PostgreSQL.PostgreSQL.16",
+      "size_mb": 210
+    },
+    {
+      "name": "ProtonVPN",
+      "method": "winget",
+      "id": "ProtonTechnologies.ProtonVPN",
+      "size_mb": 180
+    }
+  ]
+}
