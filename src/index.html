@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Windows Dev Bootstrap</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="greeting">
+                    Good morning, <span id="username">developer</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-sm" id="exportBtn">export</button>
+                    <button class="btn btn-sm" id="importBtn">import</button>
+                    <input type="file" id="importFile" style="display: none" accept=".json" />
+                </div>
+            </div>
+
+            <div class="main" id="mainContent"></div>
+
+            <div class="footer">
+                <div class="status" id="statusText">loading...</div>
+                <div class="actions">
+                    <button class="btn" id="selectRecommendedBtn">
+                        recommended
+                    </button>
+                    <button class="btn" id="selectAllBtn">all</button>
+                    <button class="btn btn-primary" id="runBtn">install</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="credsOverlay" style="display: none">
+            <div class="overlay-content form-overlay">
+                <div class="overlay-header">credentials & settings</div>
+                <p class="security-notice">
+                    🔒 <strong>Security Notice:</strong> All information entered here is processed locally by PowerShell. Nothing is ever sent to any remote server. It is completely safe.
+                </p>
+                
+                <div class="form-group">
+                    <label>Git Name</label>
+                    <input type="text" id="gitName" placeholder="John Doe" />
+                </div>
+                <div class="form-group">
+                    <label>Git Email</label>
+                    <input type="email" id="gitEmail" placeholder="john@example.com" />
+                </div>
+                
+                <div class="form-group">
+                    <label>PostgreSQL Username (Auto-init)</label>
+                    <input type="text" id="pgUsername" placeholder="postgres" />
+                </div>
+                <div class="form-group">
+                    <label>PostgreSQL Password</label>
+                    <input type="password" id="pgPassword" placeholder="supersecret" />
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-secondary" id="cancelCredsBtn">cancel</button>
+                    <button class="btn btn-primary" id="startInstallBtn">start installation</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay" style="display: none">
+            <div class="overlay-content">
+                <div class="overlay-header" id="installHeader">installing...</div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="log-view" id="logView"></div>
+                <button class="btn btn-secondary" id="closeOverlayBtn" style="display: none; margin-top: 1rem;">
+                    close & exit
+                </button>
+            </div>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
