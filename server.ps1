@@ -6,8 +6,10 @@ param(
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $srcDir = Join-Path $scriptDir "src"
 $configPath = Join-Path $scriptDir "config.json"
+$bloatPath = Join-Path $scriptDir "bloatware.json"
 $downloadDir = Join-Path $env:TEMP "windev"
 $statusFile = Join-Path $downloadDir "status.json"
+$logFile = Join-Path $downloadDir "logs.txt"
 
 if (-not (Test-Path $downloadDir)) {
     New-Item -ItemType Directory -Force -Path $downloadDir | Out-Null
@@ -27,6 +29,17 @@ $listener.Prefixes.Add("http://localhost:$Port/")
 $listener.Start()
 
 Write-Host "Server listening on http://localhost:$Port/" -ForegroundColor Green
+
+# Pre-flight check: Ensure Winget is healthy
+Write-Host "Checking Winget status..." -ForegroundColor Cyan
+try {
+    $wingetVersion = winget --version
+    Write-Host "✓ Winget version: $wingetVersion" -ForegroundColor Green
+} catch {
+    Write-Host "⚠️ Winget not found or outdated. Attempting to update..." -ForegroundColor Yellow
+    # This is a common fix for fresh Windows installs where Winget is stale
+    # Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+}
 
 # Start background speed test if not provided
 if ($NetworkSpeed -eq 0) {
@@ -71,7 +84,12 @@ try {
 
         if ($path -eq "/api/config") {
             $response.ContentType = "application/json"
-            $content = Get-Content $configPath -Raw
+            $config = Get-Content $configPath -Raw | ConvertFrom-Json
+            if (Test-Path $bloatPath) {
+                $bloat = Get-Content $bloatPath -Raw | ConvertFrom-Json
+                $config.categories += $bloat
+            }
+            $content = $config | ConvertTo-Json -Depth 10
             $buffer = [System.Text.Encoding]::UTF8.GetBytes($content)
             $response.ContentLength64 = $buffer.Length
             $response.OutputStream.Write($buffer, 0, $buffer.Length)
@@ -120,7 +138,7 @@ try {
 
             # Start background job for installation
             Start-Job -Name "WinDevInstall" -ScriptBlock {
-                param($payload, $configPath, $downloadDir, $statusFile)
+                param($payload, $configPath, $downloadDir, $statusFile, $logFile)
 
                 function Update-Status($statusObj) {
                     # Retry logic for file lock
@@ -138,6 +156,9 @@ try {
                     $time = (Get-Date).ToString("HH:mm:ss")
                     $logEntry = @{ time = $time; message = $msg; type = $type }
                     $statusObj.logs += $logEntry
+                    # Write to structured log file
+                    $logLine = "[$( (Get-Date).ToString("yyyy-MM-dd HH:mm:ss") )] [$($type.ToUpper())] $msg"
+                    $logLine | Out-File -FilePath $logFile -Append -Encoding UTF8
                     Update-Status $statusObj
                 }
 
@@ -295,7 +316,7 @@ try {
                 $statusObj.isRunning = $false
                 Update-Status $statusObj
 
-            } -ArgumentList $payload, $configPath, $downloadDir, $statusFile | Out-Null
+            } -ArgumentList $payload, $configPath, $downloadDir, $statusFile, $logFile | Out-Null
 
             $response.ContentType = "application/json"
             $buffer = [System.Text.Encoding]::UTF8.GetBytes('{"status":"started"}')
