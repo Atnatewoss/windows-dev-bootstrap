@@ -1,87 +1,292 @@
 {
-  "apps": [
+  "categories": [
     {
-      "name": "Zed Editor",
-      "method": "winget",
-      "id": "Zed.Zed",
-      "size_mb": 85,
-      "pin_to_taskbar": true,
-      "pin_path": "C:\\Users\\$env:USERNAME\\AppData\\Local\\Programs\\Zed\\zed.exe"
+      "name": "editor",
+      "tools": [
+        {
+          "name": "Zed",
+          "recommended": true,
+          "iconFile": "zed.webp",
+          "method": "winget",
+          "id": "Zed.Zed",
+          "pin_to_taskbar": true
+        },
+        {
+          "name": "VS Code",
+          "recommended": false,
+          "iconFile": "vscode.webp",
+          "method": "winget",
+          "id": "Microsoft.VisualStudioCode",
+          "pin_to_taskbar": true
+        },
+        {
+          "name": "Cursor",
+          "recommended": false,
+          "iconFile": "cursor.webp",
+          "method": "winget",
+          "id": "Cursor.Cursor",
+          "pin_to_taskbar": true
+        },
+        {
+          "name": "Antigravity",
+          "recommended": false,
+          "iconFile": "antigravity.svg",
+          "method": "winget",
+          "id": "Google.Antigravity",
+          "pin_to_taskbar": true
+        },
+        {
+          "name": "Windsurf",
+          "recommended": false,
+          "iconFile": "windsurf.svg",
+          "method": "winget",
+          "id": "Codeium.Windsurf",
+          "pin_to_taskbar": true
+        },
+        {
+          "name": "Neovim",
+          "recommended": false,
+          "iconFile": "neovim.svg",
+          "method": "winget",
+          "id": "Neovim.Neovim"
+        }
+      ]
     },
     {
-      "name": "Brave Browser",
-      "method": "winget",
-      "id": "Brave.Brave",
-      "size_mb": 110,
-      "pin_to_taskbar": true,
-      "pin_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+      "name": "browser",
+      "tools": [
+        {
+          "name": "Brave",
+          "recommended": true,
+          "iconFile": "brave.svg",
+          "method": "winget",
+          "id": "Brave.Brave",
+          "pin_to_taskbar": true
+        },
+        {
+          "name": "Zen",
+          "recommended": false,
+          "iconFile": "zen.webp",
+          "method": "winget",
+          "id": "Zen-Browser.Zen"
+        },
+        {
+          "name": "Firefox",
+          "recommended": false,
+          "iconFile": "Firefox.svg",
+          "method": "winget",
+          "id": "Mozilla.Firefox"
+        },
+        {
+          "name": "Chrome",
+          "recommended": false,
+          "iconFile": "Chrome.svg",
+          "method": "winget",
+          "id": "Google.Chrome"
+        }
+      ]
     },
     {
-      "name": "Node.js LTS",
-      "method": "winget",
-      "id": "OpenJS.NodeJS.LTS",
-      "size_mb": 35
+      "name": "runtimes",
+      "tools": [
+        {
+          "name": "Node.js",
+          "recommended": true,
+          "iconFile": "Node.js.svg",
+          "method": "winget",
+          "id": "OpenJS.NodeJS.LTS"
+        },
+        {
+          "name": "Python",
+          "recommended": true,
+          "iconFile": "Python.svg",
+          "method": "winget",
+          "id": "Python.Python.3.12"
+        },
+        {
+          "name": "Bun",
+          "recommended": true,
+          "iconFile": "Bun.svg",
+          "method": "direct_download_zip",
+          "url": "https://github.com/oven-sh/bun/releases/latest/download/bun-windows-x64.zip",
+          "install_path": "$env:LOCALAPPDATA\\Bun",
+          "add_to_path": true
+        },
+        {
+          "name": "Deno",
+          "recommended": false,
+          "iconFile": "Deno.svg",
+          "method": "winget",
+          "id": "Deno.Deno"
+        }
+      ]
     },
     {
-      "name": "Python",
-      "method": "winget",
-      "id": "Python.Python.3.12",
-      "size_mb": 25
+      "name": "notes",
+      "tools": [
+        {
+          "name": "Obsidian",
+          "recommended": true,
+          "iconFile": "obsidian.webp",
+          "method": "winget",
+          "id": "Obsidian.Obsidian",
+          "pin_to_taskbar": true
+        },
+        {
+          "name": "Notion",
+          "recommended": false,
+          "iconFile": "notion.svg",
+          "method": "winget",
+          "id": "Notion.Notion"
+        },
+        {
+          "name": "Logseq",
+          "recommended": false,
+          "iconFile": "logseq.svg",
+          "method": "winget",
+          "id": "Logseq.Logseq"
+        }
+      ]
     },
     {
-      "name": "Bun",
-      "method": "direct_download",
-      "url": "https://github.com/oven-sh/bun/releases/latest/download/bun-windows-x64.zip",
-      "silent_args": "",
-      "size_mb": 30,
-      "instructions": "Extract zip and add to PATH"
+      "name": "passwords",
+      "tools": [
+        {
+          "name": "Bitwarden",
+          "recommended": true,
+          "iconFile": "bitwarden.svg",
+          "method": "winget",
+          "id": "Bitwarden.Bitwarden"
+        },
+        {
+          "name": "1Password",
+          "recommended": false,
+          "iconFile": "1password.svg",
+          "method": "winget",
+          "id": "AgileBits.1Password"
+        }
+      ]
     },
     {
-      "name": "Obsidian",
-      "method": "winget",
-      "id": "Obsidian.Obsidian",
-      "size_mb": 120,
-      "pin_to_taskbar": true,
-      "pin_path": "C:\\Users\\$env:USERNAME\\AppData\\Local\\Obsidian\\Obsidian.exe"
+      "name": "file transfer",
+      "tools": [
+        {
+          "name": "LocalSend",
+          "recommended": true,
+          "iconFile": "localsend.svg",
+          "method": "winget",
+          "id": "LocalSend.LocalSend"
+        }
+      ]
     },
     {
-      "name": "Bitwarden",
-      "method": "winget",
-      "id": "Bitwarden.Bitwarden",
-      "size_mb": 90,
-      "pin_to_taskbar": false
+      "name": "version control",
+      "tools": [
+        {
+          "name": "Git",
+          "recommended": true,
+          "iconFile": "git.svg",
+          "method": "winget",
+          "id": "Git.Git"
+        },
+        {
+          "name": "GitHub Desktop",
+          "recommended": true,
+          "iconFile": "github-desktop.webp",
+          "method": "winget",
+          "id": "GitHub.GitHubDesktop",
+          "pin_to_taskbar": true
+        }
+      ]
     },
     {
-      "name": "LocalSend",
-      "method": "winget",
-      "id": "LocalSend.LocalSend",
-      "size_mb": 45
+      "name": "database",
+      "tools": [
+        {
+          "name": "PostgreSQL",
+          "recommended": true,
+          "iconFile": "PostgresSQL.svg",
+          "method": "winget",
+          "id": "PostgreSQL.PostgreSQL.16",
+          "auto_init": true
+        },
+        {
+          "name": "MySQL",
+          "recommended": false,
+          "iconFile": "MySQL.svg",
+          "method": "winget",
+          "id": "Oracle.MySQLWorkbench"
+        }
+      ]
     },
     {
-      "name": "Git",
-      "method": "winget",
-      "id": "Git.Git",
-      "size_mb": 65
+      "name": "vpn",
+      "tools": [
+        {
+          "name": "ProtonVPN",
+          "recommended": true,
+          "iconFile": "proton-vpn.webp",
+          "method": "winget",
+          "id": "ProtonTechnologies.ProtonVPN"
+        }
+      ]
     },
     {
-      "name": "GitHub Desktop",
-      "method": "winget",
-      "id": "GitHub.GitHubDesktop",
-      "size_mb": 95,
-      "pin_to_taskbar": true,
-      "pin_path": "C:\\Users\\$env:USERNAME\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe"
+      "name": "terminal",
+      "tools": [
+        {
+          "name": "Windows Terminal",
+          "recommended": true,
+          "iconFile": "windows-terminal.webp",
+          "method": "builtin_pin",
+          "app_name": "Microsoft.WindowsTerminal"
+        }
+      ]
     },
     {
-      "name": "PostgreSQL + pgAdmin",
-      "method": "winget",
-      "id": "PostgreSQL.PostgreSQL.16",
-      "size_mb": 210
+      "name": "reminders",
+      "tools": [
+        {
+          "name": "Sticky Notes",
+          "recommended": true,
+          "iconFile": "sticky-notes.webp",
+          "method": "builtin_pin",
+          "app_name": "Microsoft.MicrosoftStickyNotes"
+        }
+      ]
     },
     {
-      "name": "ProtonVPN",
-      "method": "winget",
-      "id": "ProtonTechnologies.ProtonVPN",
-      "size_mb": 180
+      "name": "bloatware removal",
+      "tools": [
+        {
+          "name": "Copilot",
+          "recommended": true,
+          "iconFile": "copilot.webp",
+          "method": "remove-bloat",
+          "id": "Microsoft.Windows.Ai.Copilot.Provider"
+        },
+        {
+          "name": "Xbox",
+          "recommended": true,
+          "iconFile": "microsoft-xbox.webp",
+          "method": "remove-bloat",
+          "id": "Microsoft.XboxApp"
+        },
+        {
+          "name": "Clipchamp",
+          "recommended": true,
+          "iconFile": "clipchamp.webp",
+          "method": "remove-bloat",
+          "id": "Clipchamp.Clipchamp"
+        },
+        {
+          "name": "Teams",
+          "recommended": true,
+          "iconFile": "Microsoft-Teams.webp",
+          "method": "remove-bloat",
+          "id": "MicrosoftTeams"
+        }
+      ]
     }
   ]
 }
