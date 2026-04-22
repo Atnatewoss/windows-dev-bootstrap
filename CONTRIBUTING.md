@@ -64,4 +64,4 @@ If you found more Windows bloat that should be removed, add it to `core/bloatwar
 ## Code of Conduct
 Please be respectful and constructive in all interactions.
 
-Happy Bootstrapping! 🚀
+Happy Bootstrapping!
