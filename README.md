@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Windows Dev Bootstrap 🚀</h1>
+  <h1>Windows Dev Bootstrap</h1>
   <p><em>From fresh install to fully configured dev environment in one command.</em></p>
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
