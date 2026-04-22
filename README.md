@@ -1,103 +1,92 @@
-## Windows for Developers > *From fresh install to dev-ready in minutes*
-
-I recently had to format and reinstall Windows for the 6th or 7th time. Through all those reinstalls (and a couple of Linux experiments where I corrupted files trying to be smart), I noticed consistent apps and configs I always came back to.
-
-This repo is my **bootstrap script** so that next time I wipe Windows, I'm up and running fast. If you're a developer who wants to get your Windows machine ready for dev work quickly, follow along.
-
-> Most tools are open source. None of this is sponsored (but hey, I'm open to it).
+<div align="center">
+  <h1>Windows Dev Bootstrap 🚀</h1>
+  <p><em>From fresh install to fully configured dev environment in one command.</em></p>
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+</div>
 
 ---
 
-## One-command setup
+I recently had to format and reinstall Windows for the 6th or 7th time. Through all those reinstalls, I noticed consistent apps and configs I always came back to. This repo turns a 2-hour manual setup into a 10-minute automated run.
+
+If you're a developer who wants to get your Windows machine ready for dev work quickly, follow along.
+
+## ✨ Features
+
+- **Zero Dependencies**: Runs completely natively on a fresh Windows install. No Node.js or Python required.
+- **Local Web UI**: Automatically boots up a stunning, modern web UI powered by a local PowerShell HTTP server.
+- **Smart Installations**: Handles `winget` packages, direct ZIP downloads, auto-extraction, and automatic `PATH` environment updates (e.g., for `Bun`).
+- **Real-time Taskbar Pinning**: Automatically pins your selected apps (like Terminal, browsers, and editors) to your taskbar as they install.
+- **Secure Credentials**: Enter your Git and PostgreSQL credentials in the UI, and the local script configures them for you. **Nothing ever leaves your machine.**
+- **Network Aware**: Performs a speed test to estimate your total download size and time.
+- **Offline Cache**: Keeps a local cache of downloaded installers so subsequent runs on the same machine are lightning fast.
+- **Import/Export**: Share your custom setup with your team by exporting your selection as a `.json` file.
+
+---
+
+## 🚀 One-Command Setup
+
+Open **PowerShell as Administrator** and run:
 
 ```powershell
-# Clone and run (as Administrator)
-git clone https://github.com/Atnatewoss/windows-dev-bootstrap.git
-cd windows-dev-bootstrap
-.\install.ps1
+irm https://raw.githubusercontent.com/YOUR_ORG/windows-dev-bootstrap/main/bootstrap.ps1 | iex
 ```
 
 **What happens:**
-- Checks internet & shows total download size (~1.2 GB)
-- Installs all dev tools (Zed, Node, Python, Bun, Obsidian, etc.)
-- Pins apps to taskbar
-- Removes bloatware (Copilot, Xbox, Teams, etc.) — interactive, you choose
+1. Downloads and extracts the latest version of this toolkit to your temp folder.
+2. Performs a quick network speed test.
+3. Launches a local web server (`localhost:5050`) and opens your default browser.
+4. You select your tools, click install, and watch the progress in real-time.
+5. Cleans up everything automatically when you close the UI!
 
 ---
 
-## What gets installed
+## 📦 What gets installed
 
-| Category | Tools |
-|----------|-------|
-| **Editor** | Zed (Rust-based, fast, AI agents) |
-| **Browser** | Brave (ad block, RAM efficient) |
-| **Runtimes** | Node.js LTS, Python latest, Bun |
-| **Notes** | Obsidian |
-| **Passwords** | Bitwarden (synced with phone) |
-| **File transfer** | LocalSend (laptop ↔ phone) |
-| **Version control** | Git + GitHub Desktop |
-| **Database** | PostgreSQL + pgAdmin4 |
-| **VPN** | ProtonVPN |
-| **Terminal** | Windows Terminal (default) |
-| **Reminders** | Windows Sticky Notes |
+The UI allows you to select from curated lists of tools (fully customizable via `config.json`):
 
----
+| Category | Recommended Tools |
+|----------|-------------------|
+| **Editor** | Zed, VS Code, Cursor, Neovim |
+| **Browser** | Brave, Zen, Firefox, Chrome |
+| **Runtimes** | Node.js LTS, Python latest, Bun, Deno |
+| **Notes** | Obsidian, Notion, Logseq |
+| **Passwords** | Bitwarden, 1Password |
+| **Version control** | Git, GitHub Desktop |
+| **Database** | PostgreSQL + pgAdmin4, MySQL |
+| **Terminal** | Windows Terminal (Pinned automatically) |
 
-## Bloatware removed (by default)
+## 🧹 Bloatware Removal
 
+You can optionally run a bloatware removal phase that scrubs:
 - Copilot & related AI tools
 - Clipchamp
-- Microsoft News
-- Solitaire / casual games
-- Xbox Game Bar (keep if you game, toggle off)
+- Xbox Game Bar
 - Teams (personal)
-- People, Maps, Feedback Hub, Skype, Whiteboard, Power Automate
-
-> The script shows checkboxes, you can keep anything you want.
+- *And more...*
 
 ---
 
-## Repo structure
+## 🛠️ Repo Architecture
 
-```
+```text
 windows-dev-bootstrap/
-├── README.md              # This file
-├── install.ps1            # Main installer (run as Admin)
-├── config.json            # App list + download URLs + sizes
-├── remove-bloat.ps1       # Interactive bloatware remover
-└── scripts/
-    └── (future: pin-to-taskbar, post-config, etc.)
+├── bootstrap.ps1          # One-liner web-installer
+├── launcher.ps1           # Entry point (Checks admin, runs server)
+├── server.ps1             # PowerShell backend (HttpListener, Install logic)
+├── config.json            # Database of tools (Edit this to add your own!)
+└── src/                   # The web UI (HTML/CSS/JS)
 ```
 
 ---
 
-## Manual steps after script
+## 🤝 Contributing
 
-The script handles installs. You still need to:
+Found a better tool? Want to add a new category? Modifying the toolset is as simple as opening a PR to edit `config.json`. 
 
-1. **Log into Bitwarden** → sync passwords
-2. **Log into Brave profiles** → GitHub, Gmail, DeepSeek, Discord, YouTube
-3. **Open Obsidian** → restore/pull your vault
-4. **Start coding**
+If you want to contribute to the core engine, check out `server.ps1` and `src/js/script.js`.
 
----
+## 📜 License
 
-## Why this exists
-
-Windows is great for development *after* you:
-- Install the right tools
-- Remove the noise
-
-This repo turns a 2-hour setup into a 15-minute automated run.
-
----
-
-## Contributing
-
-Found a better tool? A broken link? Open an issue or PR. This is mainly for me, but happy to help others escape reinstall hell.
-
----
-
-## License
-
-MIT: use it, fork it, improve it.
+MIT: use it, fork it, improve it. Escape reinstall hell.
