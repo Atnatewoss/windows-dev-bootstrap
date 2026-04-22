@@ -4,6 +4,9 @@
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
+  <br />
+  <img src="demo.png" alt="Windows Dev Bootstrap UI" width="800" />
 </div>
 
 ---
@@ -12,7 +15,7 @@ I recently had to format and reinstall Windows for the 6th or 7th time. Through 
 
 If you're a developer who wants to get your Windows machine ready for dev work quickly, follow along.
 
-## ✨ Features
+## Features
 
 - **Zero Dependencies**: Runs completely natively on a fresh Windows install. No Node.js or Python required.
 - **Local Web UI**: Automatically boots up a stunning, modern web UI powered by a local PowerShell HTTP server.
@@ -25,12 +28,12 @@ If you're a developer who wants to get your Windows machine ready for dev work q
 
 ---
 
-## 🚀 One-Command Setup
+## One-Command Setup
 
 Open **PowerShell as Administrator** and run:
 
 ```powershell
-irm https://raw.githubusercontent.com/YOUR_ORG/windows-dev-bootstrap/main/bootstrap.ps1 | iex
+irm https://raw.githubusercontent.com/Atnatewoss/windows-dev-bootstrap/main/bootstrap.ps1 | iex
 ```
 
 **What happens:**
@@ -42,22 +45,25 @@ irm https://raw.githubusercontent.com/YOUR_ORG/windows-dev-bootstrap/main/bootst
 
 ---
 
-## 📦 What gets installed
+## What gets installed
 
 The UI allows you to select from curated lists of tools (fully customizable via `config.json`):
 
-| Category | Recommended Tools |
+| Category | Tools |
 |----------|-------------------|
 | **Editor** | Zed, VS Code, Cursor, Neovim |
 | **Browser** | Brave, Zen, Firefox, Chrome |
 | **Runtimes** | Node.js LTS, Python latest, Bun, Deno |
 | **Notes** | Obsidian, Notion, Logseq |
 | **Passwords** | Bitwarden, 1Password |
+| **File transfer** | LocalSend |
 | **Version control** | Git, GitHub Desktop |
 | **Database** | PostgreSQL + pgAdmin4, MySQL |
+| **VPN** | ProtonVPN |
 | **Terminal** | Windows Terminal (Pinned automatically) |
+| **Reminders** | Windows Sticky Notes |
 
-## 🧹 Bloatware Removal
+## Bloatware Removal
 
 You can optionally run a bloatware removal phase that scrubs:
 - Copilot & related AI tools
@@ -68,7 +74,7 @@ You can optionally run a bloatware removal phase that scrubs:
 
 ---
 
-## 🛠️ Repo Architecture
+## Repo Architecture
 
 ```text
 windows-dev-bootstrap/
@@ -81,12 +87,12 @@ windows-dev-bootstrap/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Found a better tool? Want to add a new category? Modifying the toolset is as simple as opening a PR to edit `config.json`. 
 
 If you want to contribute to the core engine, check out `server.ps1` and `src/js/script.js`.
 
-## 📜 License
+## License
 
 MIT: use it, fork it, improve it. Escape reinstall hell.
