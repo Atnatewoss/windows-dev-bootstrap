@@ -6,7 +6,7 @@
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
   <br />
-  <img src="demo.png" alt="Windows Dev Bootstrap UI" width="800" />
+  <img src="assets/demo.png" alt="Windows Dev Bootstrap UI" width="800" />
 </div>
 
 ---

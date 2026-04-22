@@ -4,7 +4,7 @@ param(
 )
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$srcDir = Join-Path $scriptDir "src"
+$srcDir = Join-Path (Split-Path -Parent $scriptDir) "src"
 $configPath = Join-Path $scriptDir "config.json"
 $bloatPath = Join-Path $scriptDir "bloatware.json"
 $downloadDir = Join-Path $env:TEMP "windev"

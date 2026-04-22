@@ -23,12 +23,12 @@ Write-Host "Extracting files..." -ForegroundColor Yellow
 Expand-Archive -Path $zipPath -DestinationPath $tempDir -Force
 
 $extractedDir = Join-Path $tempDir "windows-dev-bootstrap-main"
-$launcherPath = Join-Path $extractedDir "launcher.ps1"
+$launcherPath = Join-Path $extractedDir "core\launcher.ps1"
 
 if (Test-Path $launcherPath) {
     Write-Host "Starting Launcher..." -ForegroundColor Green
-    Set-Location $extractedDir
-    & $launcherPath
+    Set-Location (Join-Path $extractedDir "core")
+    & ".\launcher.ps1"
 } else {
     Write-Host "Error: Could not find launcher.ps1 in the extracted files." -ForegroundColor Red
 }
