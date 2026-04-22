@@ -1,98 +1,79 @@
 <div align="center">
+  <img src="assets/demo.png" alt="Windows Dev Bootstrap Logo" width="200" />
   <h1>Windows Dev Bootstrap</h1>
-  <p><em>From fresh install to fully configured dev environment in one command.</em></p>
-  
-  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+  <p><strong>The ultimate automated setup for Windows development environments.</strong></p>
 
-  <br />
-  <img src="assets/demo.png" alt="Windows Dev Bootstrap UI" width="800" />
+  [![GitHub Stars](https://img.shields.io/github/stars/Atnatewoss/windows-dev-bootstrap.svg?style=flat-square)](https://github.com/Atnatewoss/windows-dev-bootstrap/stargazers)
+  [![GitHub Forks](https://img.shields.io/github/forks/Atnatewoss/windows-dev-bootstrap.svg?style=flat-square)](https://github.com/Atnatewoss/windows-dev-bootstrap/network/members)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
+
+  <p>Transform a 2-hour manual install into a 10-minute automated experience.</p>
+  
+  [Quick Start](#quick-start) • [Features](#features) • [Roadmap](#roadmap) • [Contributing](#contributing)
 </div>
 
 ---
 
-I recently had to format and reinstall Windows for the 6th or 7th time. Through all those reinstalls, I noticed consistent apps and configs I always came back to. This repo turns a 2-hour manual setup into a 10-minute automated run.
+## Introduction
 
-If you're a developer who wants to get your Windows machine ready for dev work quickly, follow along.
+**Windows Dev Bootstrap** is a zero-dependency, automated toolkit designed to take a fresh Windows installation to a fully configured developer workstation in one command. It leverages a local PowerShell-based web server to provide a modern interface for managing your setup without requiring Node.js, Python, or any other pre-installed runtimes.
+
+<p align="center">
+  <img src="assets/demo.png" alt="UI Screenshot" width="800" />
+</p>
 
 ## Features
 
-- **Zero Dependencies**: Runs completely natively on a fresh Windows install. No Node.js or Python required.
-- **Local Web UI**: Automatically boots up a stunning, modern web UI powered by a local PowerShell HTTP server.
-- **Smart Installations**: Handles `winget` packages, direct ZIP downloads, auto-extraction, and automatic `PATH` environment updates (e.g., for `Bun`).
-- **Real-time Taskbar Pinning**: Automatically pins your selected apps (like Terminal, browsers, and editors) to your taskbar as they install.
-- **Secure Credentials**: Enter your Git and PostgreSQL credentials in the UI, and the local script configures them for you. **Nothing ever leaves your machine.**
-- **Network Aware**: Performs a speed test to estimate your total download size and time.
-- **Offline Cache**: Keeps a local cache of downloaded installers so subsequent runs on the same machine are lightning fast.
-- **Import/Export**: Share your custom setup with your team by exporting your selection as a `.json` file.
+- **Zero-Dependency Engine**: Runs completely natively on Windows. No pre-requisites.
+- **Modern Web Interface**: A local `HttpListener` server serves a sleek UI for tool selection.
+- **Smart App Management**: Handles `winget` packages, direct ZIP downloads, and auto-extraction.
+- **Taskbar Automation**: Programmatically pins installed apps to your taskbar in real-time.
+- **Secure by Design**: Git and PostgreSQL credentials are processed strictly locally. No telemetry.
+- **Network Performance**: Background speed tests estimate download times based on your connection.
+- **Advanced Modularity**: Centralized JSON configuration for apps and bloatware removal.
 
----
+## Quick Start
 
-## One-Command Setup
-
-Open **PowerShell as Administrator** and run:
+Open **PowerShell as Administrator** and run the following one-liner:
 
 ```powershell
 irm https://raw.githubusercontent.com/Atnatewoss/windows-dev-bootstrap/main/bootstrap.ps1 | iex
 ```
 
-**What happens:**
-1. Downloads and extracts the latest version of this toolkit to your temp folder.
-2. Performs a quick network speed test.
-3. Launches a local web server (`localhost:5050`) and opens your default browser.
-4. You select your tools, click install, and watch the progress in real-time.
-5. Cleans up everything automatically when you close the UI!
+> [!IMPORTANT]
+> Ensure you run PowerShell as Administrator to allow for `winget` installations and `PATH` modifications.
 
----
+## Core Toolset
 
-## What gets installed
+The UI provides a curated list of tools, fully customizable via `core/config.json`:
 
-The UI allows you to select from curated lists of tools (fully customizable via `config.json`):
+| Category | Recommended Tools |
+| :--- | :--- |
+| **Editors** | Zed, VS Code, Cursor, Neovim |
+| **Runtimes** | Node.js LTS, Python 3.12, Bun, Deno |
+| **Databases** | PostgreSQL 16 (Auto-Init), MySQL |
+| **Utilities** | Bitwarden, LocalSend, ProtonVPN |
+| **Native Apps** | Windows Terminal, Sticky Notes (Auto-Pinned) |
 
-| Category | Tools |
-|----------|-------------------|
-| **Editor** | Zed, VS Code, Cursor, Neovim |
-| **Browser** | Brave, Zen, Firefox, Chrome |
-| **Runtimes** | Node.js LTS, Python latest, Bun, Deno |
-| **Notes** | Obsidian, Notion, Logseq |
-| **Passwords** | Bitwarden, 1Password |
-| **File transfer** | LocalSend |
-| **Version control** | Git, GitHub Desktop |
-| **Database** | PostgreSQL + pgAdmin4, MySQL |
-| **VPN** | ProtonVPN |
-| **Terminal** | Windows Terminal (Pinned automatically) |
-| **Reminders** | Windows Sticky Notes |
+## 🗺️ Roadmap
 
-## Bloatware Removal
-
-You can optionally run a bloatware removal phase that scrubs:
-- Copilot & related AI tools
-- Clipchamp
-- Xbox Game Bar
-- Teams (personal)
-- *And more...*
-
----
-
-## Repo Architecture
-
-```text
-windows-dev-bootstrap/
-├── bootstrap.ps1          # One-liner web-installer
-├── launcher.ps1           # Entry point (Checks admin, runs server)
-├── server.ps1             # PowerShell backend (HttpListener, Install logic)
-├── config.json            # Database of tools (Edit this to add your own!)
-└── src/                   # The web UI (HTML/CSS/JS)
-```
-
----
+- [ ] **Presets Support**: One-click selection for "Frontend", "Backend", or "Fullstack" profiles.
+- [ ] **WSL2 Auto-Config**: Scripted installation of WSL2 with Ubuntu.
+- [ ] **Dotfiles Integration**: Import your custom `.bashrc`, `.zshrc`, or `.vimrc` directly.
+- [ ] **Dark/Light Mode**: Dynamic UI themes.
+- [ ] **Telemetry (Opt-in)**: Anonymous success/fail rates to improve Winget ID accuracy.
 
 ## Contributing
 
-Found a better tool? Want to add a new category? Modifying the toolset is as simple as opening a PR to edit `config.json`. 
-
-If you want to contribute to the core engine, check out `server.ps1` and `src/js/script.js`.
+We love contributions! Whether you're adding a new tool to `config.json` or improving the PowerShell backend, check out our [Contributing Guide](CONTRIBUTING.md) to get started.
 
 ## License
 
-MIT: use it, fork it, improve it. Escape reinstall hell.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+  Made by <a href="https://github.com/Atnatewoss">Atnatewoss</a>
+</div>
