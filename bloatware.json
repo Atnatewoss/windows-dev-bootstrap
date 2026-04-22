@@ -1,0 +1,33 @@
+{
+  "name": "bloatware removal",
+  "tools": [
+    {
+      "name": "Copilot",
+      "recommended": true,
+      "iconFile": "copilot.webp",
+      "method": "remove-bloat",
+      "id": "Microsoft.Windows.Ai.Copilot.Provider"
+    },
+    {
+      "name": "Xbox",
+      "recommended": true,
+      "iconFile": "microsoft-xbox.webp",
+      "method": "remove-bloat",
+      "id": "Microsoft.XboxApp"
+    },
+    {
+      "name": "Clipchamp",
+      "recommended": true,
+      "iconFile": "clipchamp.webp",
+      "method": "remove-bloat",
+      "id": "Clipchamp.Clipchamp"
+    },
+    {
+      "name": "Teams",
+      "recommended": true,
+      "iconFile": "Microsoft-Teams.webp",
+      "method": "remove-bloat",
+      "id": "MicrosoftTeams"
+    }
+  ]
+}
