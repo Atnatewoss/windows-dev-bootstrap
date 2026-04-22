@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="assets/demo.png" alt="Windows Dev Bootstrap Logo" width="200" />
   <h1>Windows Dev Bootstrap</h1>
   <p><strong>The ultimate automated setup for Windows development environments.</strong></p>
 
@@ -56,14 +55,6 @@ The UI provides a curated list of tools, fully customizable via `core/config.jso
 | **Utilities** | Bitwarden, LocalSend, ProtonVPN |
 | **Native Apps** | Windows Terminal, Sticky Notes (Auto-Pinned) |
 
-## 🗺️ Roadmap
-
-- [ ] **Presets Support**: One-click selection for "Frontend", "Backend", or "Fullstack" profiles.
-- [ ] **WSL2 Auto-Config**: Scripted installation of WSL2 with Ubuntu.
-- [ ] **Dotfiles Integration**: Import your custom `.bashrc`, `.zshrc`, or `.vimrc` directly.
-- [ ] **Dark/Light Mode**: Dynamic UI themes.
-- [ ] **Telemetry (Opt-in)**: Anonymous success/fail rates to improve Winget ID accuracy.
-
 ## Contributing
 
 We love contributions! Whether you're adding a new tool to `config.json` or improving the PowerShell backend, check out our [Contributing Guide](CONTRIBUTING.md) to get started.
@@ -73,7 +64,3 @@ We love contributions! Whether you're adding a new tool to `config.json` or impr
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-<div align="center">
-  Made by <a href="https://github.com/Atnatewoss">Atnatewoss</a>
-</div>
