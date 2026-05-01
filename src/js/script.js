@@ -257,16 +257,20 @@ document.getElementById("selectAllBtn").addEventListener("click", () => {
 // Credentials Modal
 document.getElementById("runBtn").addEventListener("click", () => {
   if (selectedTools.size === 0) return;
-  document.getElementById("credsOverlay").style.display = "flex";
+
+  const hasGit = Array.from(selectedTools).some(t => t.includes("Git"));
+  const hasPG = Array.from(selectedTools).some(t => t.includes("PostgreSQL"));
+
+  if (hasGit || hasPG) {
+    document.getElementById("gitCredsGroup").style.display = hasGit ? "block" : "none";
+    document.getElementById("pgCredsGroup").style.display = hasPG ? "block" : "none";
+    document.getElementById("credsOverlay").style.display = "flex";
+  } else {
+    executeInstall();
+  }
 });
 
-document.getElementById("cancelCredsBtn").addEventListener("click", () => {
-  document.getElementById("credsOverlay").style.display = "none";
-});
-
-document.getElementById("startInstallBtn").addEventListener("click", () => {
-  document.getElementById("credsOverlay").style.display = "none";
-  
+function executeInstall() {
   const payload = {
     tools: Array.from(selectedTools),
     credentials: {
@@ -287,6 +291,15 @@ document.getElementById("startInstallBtn").addEventListener("click", () => {
   document.getElementById("closeOverlayBtn").style.display = "none";
 
   startInstall(payload);
+}
+
+document.getElementById("cancelCredsBtn").addEventListener("click", () => {
+  document.getElementById("credsOverlay").style.display = "none";
+});
+
+document.getElementById("startInstallBtn").addEventListener("click", () => {
+  document.getElementById("credsOverlay").style.display = "none";
+  executeInstall();
 });
 
 document.getElementById("closeOverlayBtn").addEventListener("click", () => {
