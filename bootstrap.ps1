@@ -1,6 +1,6 @@
 # bootstrap.ps1
 # This script is meant to be run via:
-# irm https://raw.githubusercontent.com/YOUR_ORG/windows-dev-bootstrap/main/bootstrap.ps1 | iex
+# irm https://raw.githubusercontent.com/Atnatewoss/windows-dev-bootstrap/main/bootstrap.ps1 | iex
 
 $ErrorActionPreference = 'Stop'
 
@@ -8,7 +8,7 @@ Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host "  Downloading Windows Dev Bootstrap..." -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
 
-$repoZipUrl = "https://github.com/Atnateowss/windows-dev-bootstrap/archive/refs/heads/main.zip"
+$repoZipUrl = "https://github.com/Atnatewoss/windows-dev-bootstrap/archive/refs/heads/main.zip"
 $tempDir = Join-Path $env:TEMP "WindowsDevBootstrap"
 $zipPath = Join-Path $env:TEMP "windows-dev-bootstrap.zip"
 
