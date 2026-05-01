@@ -34,9 +34,9 @@ Write-Host "Server listening on http://localhost:$Port/" -ForegroundColor Green
 Write-Host "Checking Winget status..." -ForegroundColor Cyan
 try {
     $wingetVersion = winget --version
-    Write-Host "✓ Winget version: $wingetVersion" -ForegroundColor Green
+    Write-Host "[v] Winget version: $wingetVersion" -ForegroundColor Green
 } catch {
-    Write-Host "⚠️ Winget not found or outdated. Attempting to update..." -ForegroundColor Yellow
+    Write-Host "[!] Winget not found or outdated. Attempting to update..." -ForegroundColor Yellow
     # This is a common fix for fresh Windows installs where Winget is stale
     # Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
 }
