@@ -14,10 +14,10 @@ function Write-ColorOutput($ForegroundColor) {
 }
 
 Clear-Host
-Write-ColorOutput Cyan "╔════════════════════════════════════════╗"
-Write-ColorOutput Cyan "║     Windows Dev Bootstrap              ║"
-Write-ColorOutput Cyan "║     Windows for Developers             ║"
-Write-ColorOutput Cyan "╚════════════════════════════════════════╝"
+Write-ColorOutput Cyan "+----------------------------------------+"
+Write-ColorOutput Cyan "|     Windows Dev Bootstrap              |"
+Write-ColorOutput Cyan "|     Windows for Developers             |"
+Write-ColorOutput Cyan "+----------------------------------------+"
 Write-Host ""
 
 # Check if running as Admin (recommended)
